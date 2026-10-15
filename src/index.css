@@ -1,0 +1,348 @@
+/* ==========================================================================
+   etmek — The Clothing Solution | Luxury Design System
+   Color Identity: Espresso Brown (#493512) & Warm Linen (#FFF2DC)
+   ========================================================================== */
+
+:root {
+  /* Brand Palette */
+  --color-espresso: #493512;
+  --color-espresso-dark: #2F210A;
+  --color-espresso-deep: #1E1508;
+  --color-espresso-medium: #5F4519;
+  --color-espresso-light: #7E5D24;
+  --color-espresso-muted: rgba(73, 53, 18, 0.72);
+  --color-espresso-subtle: rgba(73, 53, 18, 0.08);
+
+  --color-linen: #FFF2DC;
+  --color-linen-light: #FFF9EE;
+  --color-linen-pure: #FAF5EB;
+  --color-linen-card: #FAF2E3;
+  --color-linen-border: #E8D6B7;
+  --color-linen-dark: #E2CEAA;
+
+  --color-gold: #C5A059;
+  --color-gold-light: #DFBF7E;
+  --color-terracotta: #A64B2A;
+  --color-sage: #8A9A86;
+  --color-white: #FFFFFF;
+
+  /* Typography */
+  --font-editorial: 'Cormorant Garamond', serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(73, 53, 18, 0.05);
+  --shadow-md: 0 8px 24px rgba(73, 53, 18, 0.08);
+  --shadow-lg: 0 16px 40px rgba(73, 53, 18, 0.12);
+  --shadow-3d: 0 25px 50px -12px rgba(47, 33, 10, 0.25);
+  --shadow-inner: inset 0 2px 4px rgba(73, 53, 18, 0.06);
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Global Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-linen-light);
+  color: var(--color-espresso);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Editorial Grain Texture Overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(rgba(73, 53, 18, 0.03) 1px, transparent 0);
+  background-size: 24px 24px;
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* Typography Helpers */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  color: var(--color-espresso-deep);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.font-editorial {
+  font-family: var(--font-editorial);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-linen);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-espresso-medium);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-espresso-dark);
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1320px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1380px;
+  }
+}
+
+/* Editorial Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: var(--color-espresso);
+  color: var(--color-linen);
+  padding: 0.95rem 2rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid var(--color-espresso);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 15px rgba(73, 53, 18, 0.2);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background: var(--color-espresso-dark);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(73, 53, 18, 0.32);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: transparent;
+  color: var(--color-espresso);
+  padding: 0.95rem 2rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid var(--color-espresso);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  background: var(--color-espresso);
+  color: var(--color-linen);
+  transform: translateY(-2px);
+}
+
+.btn-linen {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: var(--color-linen);
+  color: var(--color-espresso);
+  padding: 0.9rem 1.8rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid var(--color-linen-border);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.btn-linen:hover {
+  background: #FFFFFF;
+  border-color: var(--color-espresso);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* 3D Card Container & Tilt Effects */
+.card-3d-wrapper {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+.card-3d {
+  position: relative;
+  background: var(--color-linen-card);
+  border: 1px solid var(--color-linen-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: transform 0.15s ease-out, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.card-3d:hover {
+  box-shadow: var(--shadow-3d);
+}
+
+.card-3d-glare {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 5;
+}
+
+.card-3d:hover .card-3d-glare {
+  opacity: 1;
+}
+
+/* Badges */
+.badge-luxury {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-full);
+}
+
+.badge-espresso {
+  background: var(--color-espresso);
+  color: var(--color-linen);
+}
+
+.badge-gold {
+  background: var(--color-gold);
+  color: var(--color-white);
+}
+
+.badge-linen {
+  background: var(--color-linen);
+  color: var(--color-espresso);
+  border: 1px solid var(--color-linen-border);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseSubtle {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Utility */
+.glass-effect {
+  background: rgba(255, 242, 220, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.glass-espresso {
+  background: rgba(73, 53, 18, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* Lookbook Print / PDF Export Styling */
+@media print {
+  body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+  }
+  .site-header, .site-footer, .cart-drawer, .nav-actions, .no-print {
+    display: none !important;
+  }
+  .brandbook-page {
+    page-break-after: always;
+    padding: 2rem !important;
+  }
+}
